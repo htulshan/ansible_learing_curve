@@ -1,0 +1,15 @@
+
+- name : testing ios_facts
+  hosts : routers
+
+
+  tasks:
+    - name : gathering_facts
+      ios_facts :
+        gather_subset: all
+      register : facts
+
+    - name : saving_output
+      copy :
+        content : "{{ facts | to_nice_json }}"
+        dest : "all_facts/{{inventory_hostname}}_facts.json"

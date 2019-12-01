@@ -1,0 +1,23 @@
+- name : show commands on hub routers
+  hosts : HUB-CE
+  gather_facts: false
+
+  tasks :
+
+    - name : show version output
+      raw: show version
+
+    - name: show ip int b output
+      raw: show ip int b
+
+- name : show commands on Spoke1 routers
+  hosts : SPOKE1-CE
+  gather_facts: false
+  
+  tasks:
+
+    - name: show clock output
+      raw: show clock
+
+    - name: show cdp n output
+      raw: show cdp n

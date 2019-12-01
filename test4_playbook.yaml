@@ -1,0 +1,10 @@
+
+- name : testing ios_config lines command
+  hosts : routers
+  gather_facts : false
+  
+  tasks :
+    - name : configuring pass encryption
+      ios_config :
+        lines :
+          - service password-encryption
