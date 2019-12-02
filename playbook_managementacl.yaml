@@ -1,0 +1,32 @@
+- name : applying acl on management interface
+  hosts : routers
+  gather_facts : false
+
+  tasks:
+    - name : configuring acl
+      ios_config :
+        before : no ip access-list extended block-internet
+        parents :
+          - ip access-list extended block-internet
+        lines :
+          - permit ip any 192.168.0.0 0.0.255.255
+          - permit ip any 172.16.0.0 0.15.255.255
+          - permit ip any 10.0.0.0 0.255.255.255
+        match : exact
+        save_when : modified
+      register : config1
+
+    - name : applying acl on interface
+      ios_config :
+        parents :
+          - interface eth 0/3
+        lines :
+          - ip access-group block-internet out
+          - ip access-group block-internet in
+        save_when : modified
+      register : config2
+
+
+    - name : show changed config
+      debug : var=config1.updates
+      debug : var=config2.updates
