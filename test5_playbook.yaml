@@ -1,0 +1,17 @@
+
+- name : testing ios_config parents
+  hosts : routers
+  gather_facts : false
+
+  tasks :
+    - name : chaning tranport input to ssh
+      ios_config :
+        parents :
+          - line vty 0 4
+        lines :
+          - transport input ssh
+      register : config
+
+    - name : displaying changes
+      debug : var=config.updates
+      when : config.changed == true

@@ -1,0 +1,19 @@
+
+- name : saving config and taking backup
+  hosts : routers
+  gather_facts : false
+
+  tasks :
+    - name : making changes and taking backup
+      ios_config :
+        parents :
+          - line vty 0 4
+        lines :
+          - transport input ssh
+        backup : yes
+        save_when : modified
+      register : config
+
+    - name : displaying changes made
+      debug : var=config.updates
+      when : config.changed
