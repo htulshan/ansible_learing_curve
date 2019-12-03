@@ -1,0 +1,6 @@
+- name : Configure L3 interfaces
+  hosts : spoke1-core
+  gather_facts: false
+
+  roles:
+    - configure_interfaces
