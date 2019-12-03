@@ -1,0 +1,19 @@
+l3_interfaces:
+  - interface_type: Ethernet
+    interface_id: 0/0
+    description: to secondary ISP
+    ip_address: 155.1.47.7
+    subnet_mask: 255.255.255.0
+    prefix: 24
+  - interface_type: Ethernet
+    interface_id: 0/1
+    description: to core1
+    ip_address: 155.1.67.7
+    subnet_mask: 255.255.255.0
+    prefix: 24
+  - interface_type: Ethernet
+    interface_id: 0/2
+    description: to Lan
+    ip_address: 155.1.6.7
+    subnet_mask: 255.255.255.0
+    prefix: 24

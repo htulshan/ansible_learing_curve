@@ -1,7 +1,7 @@
 
 all:
   children:
-    spoke1:
+    spoke1-core:
       hosts:
 
         core1:
@@ -35,4 +35,3 @@ all:
             password: cisco
             auth_pass:
             authorize: no
-            

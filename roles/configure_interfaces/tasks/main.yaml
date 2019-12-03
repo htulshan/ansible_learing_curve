@@ -1,0 +1,3 @@
+- name : IOS Devices L3 Interfaces
+  include_tasks: l3_ios.yaml
+  when: ansible_network_os == 'ios'

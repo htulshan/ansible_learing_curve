@@ -1,0 +1,3 @@
+- name: configure l3 Interfaces
+  ios_config:
+    src: "templates/l3_interfaces_template.j2"
