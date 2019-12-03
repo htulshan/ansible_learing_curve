@@ -1,3 +1,16 @@
+- name: gather_facts
+  ios_facts:
+    gather_subset: all
+
+- name: displaying fact
+  debug: var=ansible_net_interfaces['{{l3_interfaces[0].interface_type}}{{l3_interfaces[0].interface_id}}']['operstatus']
+
 - name: configure l3 Interfaces
   ios_config:
     src: "templates/l3_interfaces_template.j2"
+  register: push_l3_interface_config
+  notify: save config
+
+- name: displaying pushed config
+  debug: var=push_l3_interface_config.updates
+  when: push_l3_interface_config.changed

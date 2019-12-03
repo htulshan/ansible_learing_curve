@@ -1,6 +1,8 @@
 {% for interface in l3_interfaces %}
   interface {{interface.interface_type}} {{interface.interface_id}}
-  description {{interface.description}}
-  ip address {{interface.ip_address}} {{interface.subnet_mask}}
-  no shutdown
+    description {{interface.description}}
+    ip address {{interface.ip_address}} {{interface.subnet_mask}}
+  {% if ansible_net_interfaces[interface.interface_type+interface.interface_id].operstatus == 'administratively down' %}
+    no shutdown
+  {% endif %}
 {% endfor %}

@@ -1,0 +1,5 @@
+- name : save config
+  ios_command :
+    commands:
+      - write
+  when : push_l3_interface_config.changed
