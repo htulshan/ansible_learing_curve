@@ -13,7 +13,21 @@ l3_interfaces:
     prefix : 24
   - interface_type : Ethernet
     interface_id : 0/2
-    description : towards lan
+    description : towards lan vlan 1
     ip_address : 155.1.6.6
     subnet_mask : 255.255.255.0
+    prefix : 24
+  - interface_type : Ethernet
+    interface_id : 0/2.10
+    description : towards lan vlan 10
+    ip_address : 155.1.16.6
+    subnet_mask : 255.255.255.0
+    encapsulation : 10
+    prefix : 24
+  - interface_type : Ethernet
+    interface_id : 0/2.100
+    description : towards lan vlan 100
+    ip_address : 155.1.106.6
+    subnet_mask : 255.255.255.0
+    encapsulation : 100
     prefix : 24
