@@ -1,5 +1,7 @@
 
 all:
+  vars:
+    ansible_python_interpreter: /usr/bin/env python3
   children:
     spoke1-core:
       hosts:
