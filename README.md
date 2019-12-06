@@ -18,7 +18,6 @@ Steps :
 
 - configure interfaces
 - configure default route to ISP
-- router on a stick -- vlan 1, 10, 100
 - configure ip sla
 - configure hsrp with track
 - configure nat

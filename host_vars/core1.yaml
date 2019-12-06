@@ -31,3 +31,9 @@ l3_interfaces:
     subnet_mask : 255.255.255.0
     encapsulation : 100
     prefix : 24
+
+static_routing :
+  - route_subnet : 0.0.0.0
+    route_mask : 0.0.0.0
+    next_hop : 155.1.36.3
+    AD : default

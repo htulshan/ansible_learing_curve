@@ -1,0 +1,9 @@
+- name : ios_routing
+  ios_config :
+    src: "templates/static_routing.j2"
+  register : pushed_config
+  notify : save config
+
+- name: displaying pushed config
+  debug: var=pushed_config.updates
+  when: pushed_config.changed
