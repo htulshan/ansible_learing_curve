@@ -1,6 +1,7 @@
 Ansible learning project
 
 ![Topology Diagram]
+
 (https://github.com/htulshan/ansible_learing_curve/blob/master/topology_diagram.png)
 
 
@@ -18,7 +19,7 @@ Steps :
 
 - configure interfaces
 - configure default route to ISP
-- configure ip sla
+- configure ip sla and track
 - configure hsrp with track
 - configure nat
 

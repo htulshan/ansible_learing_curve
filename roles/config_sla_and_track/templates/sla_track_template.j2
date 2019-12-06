@@ -1,0 +1,11 @@
+{%- for sla in sla_track -%}
+ip sla {{sla.sla_number}}
+  icmp-echo {{sla.destination_ip}}
+  threshold {{sla.threshold}}
+  timeout {{sla.timeout}}
+  frequency {{sla.frequency}}
+
+ip sla schedule {{sla.sla_number}} life {{sla.life}} start-time {{sla.start_time}}
+
+track {{ sla.track_number}} ip sla {{sla.sla_number}} reachability
+{% endfor %}

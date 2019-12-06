@@ -1,0 +1,3 @@
+- name : Configure SLA and Track on IOS
+  include_tasks : sla_track_ios.yaml
+  when : ansible_network_os == 'ios'

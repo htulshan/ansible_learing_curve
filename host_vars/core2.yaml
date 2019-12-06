@@ -37,3 +37,14 @@ static_routing :
     route_mask : 0.0.0.0
     next_hop : 155.1.47.4
     AD : default
+
+sla_track :
+  - sla_number : 1
+    destination_ip : 155.1.47.4
+    threshold : 100
+    timeout : 200
+    frequency : 1
+    life : forever
+    start_time : now
+    track_number : 1
+    track_type : reachability

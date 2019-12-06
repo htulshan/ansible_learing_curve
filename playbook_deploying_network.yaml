@@ -12,3 +12,11 @@
 
   roles:
     - configure_routing
+
+- name : config ip sla and track
+  hosts : spoke1-core
+  gather_facts : false
+
+  roles :
+    - config_sla_and_track
+    
