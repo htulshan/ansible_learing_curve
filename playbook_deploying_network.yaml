@@ -5,18 +5,23 @@
   roles:
     - configure_interfaces
 
-
-- name : configure routing
+- name : Configure routing
   hosts : spoke1-core
   gather_facts : false
 
   roles:
     - configure_routing
 
-- name : config ip sla and track
+- name : Config ip sla and track
   hosts : spoke1-core
   gather_facts : false
 
   roles :
     - config_sla_and_track
-    
+
+- name : Configure HSRP
+  hosts : spoke1-core
+  gather_facts : false
+
+  roles :
+    - configure_hsrp

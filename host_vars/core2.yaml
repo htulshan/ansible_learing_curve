@@ -48,3 +48,5 @@ sla_track :
     start_time : now
     track_number : 1
     track_type : reachability
+
+hsrp_priority : 120

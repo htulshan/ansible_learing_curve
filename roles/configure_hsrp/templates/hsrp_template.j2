@@ -1,0 +1,7 @@
+{%- for interface in hsrp.interfaces -%}
+interface {{interface.interface}}
+  standby {{interface.group}} ip {{interface.vip}}
+  standby {{interface.group}} preempt
+  standby {{interface.group}} priority {{hsrp_priority}}
+  standby {{interface.group}} track {{interface.track_number}} decrement {{interface.track_down_decrement}}
+{% endfor %}

@@ -1,0 +1,3 @@
+- name : Configuring HSRP on IOS
+  include_tasks : hsrp_ios.yaml
+  when: ansible_network_os == 'ios'

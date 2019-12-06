@@ -1,0 +1,17 @@
+hsrp :
+  interfaces :
+    - interface : Ethernet0/2
+      group : 1
+      vip : 155.1.6.1
+      track_number : 1
+      track_down_decrement : 40
+    - interface : Ethernet0/2.10
+      group : 10
+      vip : 155.1.16.1
+      track_number : 1
+      track_down_decrement : 40
+    - interface : Ethernet0/2.100
+      group : 100
+      vip : 155.1.106.1
+      track_number : 1
+      track_down_decrement : 40
