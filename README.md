@@ -21,6 +21,5 @@ Steps :
 - configure default route to ISP
 - configure ip sla and track
 - configure hsrp with track
-- configure nat
 
 2) add spoke two site.

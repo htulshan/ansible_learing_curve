@@ -6,7 +6,7 @@ all:
     spoke1-core:
       hosts:
 
-        core1:
+        spoke1-core1:
           ansible_host: 192.168.134.206
           ansible_connection: network_cli
           ansible_network_os: ios
@@ -22,7 +22,7 @@ all:
             auth_pass:
             authorize: no
 
-        core2:
+        spoke1-core2:
           ansible_host: 192.168.134.207
           ansible_connection: network_cli
           ansible_network_os: ios
@@ -32,8 +32,48 @@ all:
           ansible_become_method:
           ansible_become_pass:
           cli:
-            host: 19.168.134.7
+            host: 192.168.134.207
             username: admin
             password: cisco
             auth_pass:
             authorize: no
+
+    spoke2-core:
+      hosts:
+
+        spoke2-core1:
+          ansible_host: 192.168.134.208
+          ansible_connection: network_cli
+          ansible_network_os: ios
+          ansible_user: admin
+          ansible_ssh_pass: cisco
+          ansible_become: no
+          ansible_become_method:
+          ansible_become_pass:
+          cli:
+            host: 192.168.134.208
+            username: admin
+            password: cisco
+            auth_pass:
+            authorize: no
+
+        spoke2-core2:
+          ansible_host: 192.168.134.209
+          ansible_connection: network_cli
+          ansible_network_os: ios
+          ansible_user: admin
+          ansible_ssh_pass: cisco
+          ansible_become: no
+          ansible_become_method:
+          ansible_become_pass:
+          cli:
+            host: 192.168.134.209
+            username: admin
+            password: cisco
+            auth_pass:
+            authorize: no
+
+    spoke-core :
+      children:
+        spoke1-core:
+        spoke2-core:

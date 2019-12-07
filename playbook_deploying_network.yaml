@@ -1,26 +1,26 @@
-- name : Configure L3 interfaces
-  hosts : spoke1-core
+- name : Configure L3 interfaces on spokes
+  hosts : spoke-core
   gather_facts : false
 
   roles:
     - configure_interfaces
 
-- name : Configure routing
-  hosts : spoke1-core
+- name : Configure routing on spokes
+  hosts : spoke-core
   gather_facts : false
 
   roles:
     - configure_routing
 
-- name : Config ip sla and track
-  hosts : spoke1-core
+- name : Config ip sla and track on spokes
+  hosts : spoke-core
   gather_facts : false
 
   roles :
     - config_sla_and_track
 
-- name : Configure HSRP
-  hosts : spoke1-core
+- name : Configure HSRP on spokes
+  hosts : spoke-core
   gather_facts : false
 
   roles :

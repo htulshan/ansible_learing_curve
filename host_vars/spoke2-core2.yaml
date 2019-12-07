@@ -1,0 +1,52 @@
+l3_interfaces:
+  - interface_type: Ethernet
+    interface_id: 0/0
+    description: to secondary ISP
+    ip_address: 155.1.49.9
+    subnet_mask: 255.255.255.0
+    prefix: 24
+  - interface_type: Ethernet
+    interface_id: 0/1
+    description: to core1
+    ip_address: 155.1.89.9
+    subnet_mask: 255.255.255.0
+    prefix: 24
+  - interface_type : Ethernet
+    interface_id : 0/2
+    description : towards lan vlan 1
+    ip_address : 155.1.8.9
+    subnet_mask : 255.255.255.0
+    prefix : 24
+  - interface_type : Ethernet
+    interface_id : 0/2.10
+    description : towards lan vlan 10
+    ip_address : 155.1.18.9
+    subnet_mask : 255.255.255.0
+    encapsulation : 10
+    prefix : 24
+  - interface_type : Ethernet
+    interface_id : 0/2.100
+    description : towards lan vlan 100
+    ip_address : 155.1.108.9
+    subnet_mask : 255.255.255.0
+    encapsulation : 100
+    prefix : 24
+
+static_routing :
+  - route_subnet : 0.0.0.0
+    route_mask : 0.0.0.0
+    next_hop : 155.1.49.4
+    AD : default
+
+sla_track :
+  - sla_number : 1
+    destination_ip : 155.1.49.4
+    threshold : 100
+    timeout : 200
+    frequency : 1
+    life : forever
+    start_time : now
+    track_number : 1
+    track_type : reachability
+
+hsrp_priority : 120

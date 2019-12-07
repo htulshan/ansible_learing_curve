@@ -1,7 +1,6 @@
-{%- for interface in l3_interfaces %}
+{%- for interface in l3_interfaces -%}
 interface {{interface.interface_type}}{{interface.interface_id}}
   description {{interface.description}}
-  ip address {{interface.ip_address}} {{interface.subnet_mask}}
 {% if 'encapsulation' in interface.keys() %}
   encapsulation dot1Q {{interface.encapsulation}}
 {% if interface.interface_type+interface.interface_id in ansible_net_interfaces.keys() %}
@@ -14,4 +13,5 @@ interface {{interface.interface_type}}{{interface.interface_id}}
 {% elif ansible_net_interfaces[interface.interface_type+interface.interface_id].operstatus == 'administratively down' %}
   no shutdown
 {% endif %}
-{%- endfor %}
+  ip address {{interface.ip_address}} {{interface.subnet_mask}}
+{% endfor %}
