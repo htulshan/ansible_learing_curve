@@ -17,7 +17,7 @@
   gather_facts : false
 
   roles :
-    - config_sla_and_track
+    - configure_sla_and_track
 
 - name : Configure HSRP on spokes
   hosts : spoke-core
@@ -39,3 +39,17 @@
 
   roles :
     - configure_bgp_hub
+
+- name : Configure ip sla and track on hub
+  hosts : hub-core
+  gather_facts : false
+
+  roles :
+    - configure_sla_and_track
+
+- name : Configure HSRP on hub
+  hosts : hub-core
+  gather_facts : false
+
+  roles :
+    - configure_hsrp

@@ -51,7 +51,7 @@ sla_track :
     track_number : 1
     track_type : reachability
 
-hsrp_priority : 150
+hsrp_priority : 120
 
 bgp :
   asnumber : 200
