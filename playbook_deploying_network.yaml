@@ -25,3 +25,10 @@
 
   roles :
     - configure_hsrp
+
+- name : Configure L3 interfaces on hub
+  hosts : hub-core
+  gather_facts : false
+
+  roles :
+    - configure_interfaces

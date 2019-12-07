@@ -23,3 +23,8 @@ Steps :
 - configure hsrp with track
 
 2) add spoke two site.
+
+3) configure hub site.
+- configure bgp to ISP.
+- configure dmvpn phase 2 without ipsec.
+- configure EIGRP over the tunnel to spoke.
