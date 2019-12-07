@@ -1,0 +1,4 @@
+- name : Confiuring BGP on IOS
+  include_tasks : bgp_ios.yaml
+  when: ansible_network_os == 'ios'
+  

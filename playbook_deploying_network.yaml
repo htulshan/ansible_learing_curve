@@ -32,3 +32,10 @@
 
   roles :
     - configure_interfaces
+
+- name : Configure BGP on hub
+  hosts : hub-core
+  gather_facts : flase
+
+  roles :
+    - configure_bgp_hub

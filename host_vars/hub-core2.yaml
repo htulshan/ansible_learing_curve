@@ -32,6 +32,14 @@ l3_interfaces:
     encapsulation : 100
     prefix : 24
 
+loopback_interfaces :
+  - interface_type : Loopback
+    interface_id : 0
+    description : loopback 0 interface
+    ip_address : 150.1.2.2
+    subnet_mask : 255.255.255.255
+    prefix : 32
+
 sla_track :
   - sla_number : 1
     destination_ip : 155.1.24.4
@@ -44,3 +52,14 @@ sla_track :
     track_type : reachability
 
 hsrp_priority : 150
+
+bgp :
+  asnumber : 200
+  neighbor :
+    - neighbor_ip : 155.1.24.4
+      remote_as : 100
+      update_source : false
+    - neighbor_ip : 150.1.1.1
+      remote_as : 200
+      update_source : true
+      source_interface : Loopback0

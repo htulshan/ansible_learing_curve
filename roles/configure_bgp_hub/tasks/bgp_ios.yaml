@@ -1,0 +1,10 @@
+- name : configure hsrp
+  ios_config :
+    src : "templates/bgp_template.j2"
+  register : pushed_config
+  notify : save config
+
+- name : displaying pushed config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed
+  

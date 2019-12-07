@@ -1,0 +1,13 @@
+- name : gather_facts
+  ios_facts :
+    gather_subset : all
+
+- name : config loopback interfaces
+  ios_config :
+    src : "templates/loopback_interfaces_template.j2"
+  register : pushed_config
+  notify : save config
+
+- name : displaying pushed config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed

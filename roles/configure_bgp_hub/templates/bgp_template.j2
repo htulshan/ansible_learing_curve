@@ -1,0 +1,7 @@
+router bgp {{bgp.asnumber}}
+  {% for neighbor in bgp.neighbor %}
+  neighbor {{neighbor.neighbor_ip}} remote-as {{neighbor.remote_as}}
+  {% if neighbor.update_source -%}
+  neighbor {{neighbor.neighbor_ip}} update-source {{neighbor.source_interface}}
+  {% endif -%}
+  {% endfor %}

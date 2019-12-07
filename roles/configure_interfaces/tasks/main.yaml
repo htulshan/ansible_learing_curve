@@ -1,3 +1,7 @@
 - name : Configuring L3 interface on IOS
   include_tasks: l3_ios.yaml
   when: ansible_network_os == 'ios'
+
+- name : Configuring Loopback interface on IOS
+  include_tasks: loopback_ios.yaml
+  when : loopback_interfaces is defined
