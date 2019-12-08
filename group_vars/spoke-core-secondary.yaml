@@ -1,0 +1,12 @@
+dmvpn :
+  type : spoke
+  interfaces :
+    - interface_id : Tunnel0
+      nhrp_authentication : cisco123
+      nhrp_map :
+        underlay : 155.1.24.2
+        overlay : 155.0.2.2
+      nhrp_map_multicast : 155.1.24.2
+      nhrp_networkid : 1
+      nhrp_nhs : 155.0.2.2
+      tunnel_key : 0

@@ -1,0 +1,8 @@
+{%- for tunnel in tunnel_interfaces -%}
+interface Tunnel{{tunnel.interface_id}}
+  ip address {{tunnel.ip_address}} {{tunnel.subnet_mask}}
+  no ip redirects
+  ip mtu {{tunnel.mtu}}
+  tunnel source {{tunnel.tunnel_source}}
+  tunnel mode gre {{tunnel.tunnel_mode}}
+{% endfor %}

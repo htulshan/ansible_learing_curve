@@ -40,6 +40,15 @@ loopback_interfaces :
     subnet_mask : 255.255.255.255
     prefix : 32
 
+tunnel_interfaces :
+  - interface_type : Tunnel
+    interface_id : 0
+    ip_address : 155.0.2.2
+    subnet_mask : 255.255.255.0
+    tunnel_mode : multipoint
+    tunnel_source : Ethernet0/0
+    mtu : 1440
+
 sla_track :
   - sla_number : 1
     destination_ip : 155.1.24.4
@@ -63,3 +72,11 @@ bgp :
       remote_as : 200
       update_source : true
       source_interface : Loopback0
+
+dmvpn :
+  type : hub
+  interfaces :
+    - interface_id : Tunnel0
+      nhrp_authentication : cisco123
+      nhrp_networkid : 1
+      tunnel_key : 0

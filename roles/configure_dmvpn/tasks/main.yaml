@@ -1,0 +1,7 @@
+- name : Configure DMVPN on spoke
+  include_tasks : dmvpn_spoke_ios.yaml
+  when : dmvpn.type == 'spoke'
+
+- name : Configure DMVPN on hub
+  include_tasks : dmvpn_hub_ios.yaml
+  when : dmvpn.type == 'hub'

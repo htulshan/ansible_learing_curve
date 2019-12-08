@@ -5,3 +5,7 @@
 - name : Configuring Loopback interface on IOS
   include_tasks: loopback_ios.yaml
   when : loopback_interfaces is defined
+
+- name : Configuring Tunnel interface on IOS
+  include_tasks: tunnel_ios.yaml
+  when : tunnel_interfaces is defined

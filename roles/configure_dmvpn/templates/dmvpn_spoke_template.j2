@@ -1,0 +1,10 @@
+{%- for interface in dmvpn.interfaces -%}
+interface {{interface.interface_id}}
+  ip nhrp authentication {{interface.nhrp_authentication}}
+  ip nhrp map multicast dynamic
+  ip nhrp map {{interface.nhrp_map.overlay}} {{interface.nhrp_map.underlay}}
+  ip nhrp map multicast {{interface.nhrp_map_multicast}}
+  ip nhrp network-id {{interface.nhrp_networkid}}
+  ip nhrp nhs {{interface.nhrp_nhs}}
+  tunnel key {{interface.tunnel_key}}
+{% endfor %}

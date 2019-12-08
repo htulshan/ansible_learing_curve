@@ -32,6 +32,15 @@ l3_interfaces:
     encapsulation : 100
     prefix : 24
 
+tunnel_interfaces :
+  - interface_type : Tunnel
+    interface_id : 0
+    ip_address : 155.0.1.6
+    subnet_mask : 255.255.255.0
+    tunnel_mode : multipoint
+    tunnel_source : Ethernet0/0
+    mtu : 1440
+
 static_routing :
   - route_subnet : 0.0.0.0
     route_mask : 0.0.0.0

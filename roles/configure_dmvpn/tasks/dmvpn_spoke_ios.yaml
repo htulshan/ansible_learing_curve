@@ -1,0 +1,9 @@
+- name : Configure DMVPN
+  ios_config :
+    src : "templates/dmvpn_spoke_template.j2"
+  register : pushed_config
+  notify : save config
+
+- name : displaying pushed dmvpn config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed

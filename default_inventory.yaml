@@ -81,3 +81,13 @@ all:
       children:
         spoke1-core:
         spoke2-core:
+
+    spoke-core-primary :
+      hosts :
+        spoke1-core1:
+        spoke2-core1:
+
+    spoke-core-secondary :
+      hosts :
+        spoke1-core2:
+        spoke2-core2:
