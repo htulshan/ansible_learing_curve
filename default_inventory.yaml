@@ -2,6 +2,22 @@
 all:
   vars:
     ansible_python_interpreter: /usr/bin/env python3
+    ansible_user: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          35306635336539636566363932373663333135643832633064303566633730336663343262623638
+          3833336630366439313765663737646363663065346463390a633037303362366338303235376665
+          66616237663563336432623335613466376130383237646537373931666434643066343532633237
+          3962353338333434620a636238333139313062623731303266383263393137303933306238623636
+          3064
+
+    ansible_ssh_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          36633931616531623435303461396432326331663236333463613336373030666363323932366362
+          3061343130616338623335333333393138346638633135350a626465346237353839373635376165
+          30386434636634383364633565376438393436326633646663373433396130616238336663663462
+          3230383538656536370a626265636561353131393464316333643339333034656233323931336363
+          3764
+
   children:
     spoke1-core:
       hosts:
@@ -10,33 +26,17 @@ all:
           ansible_host: 192.168.134.206
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.206
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
 
         spoke1-core2:
           ansible_host: 192.168.134.207
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.207
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
 
     spoke2-core:
       hosts:
@@ -45,33 +45,17 @@ all:
           ansible_host: 192.168.134.208
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.208
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
 
         spoke2-core2:
           ansible_host: 192.168.134.209
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.209
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
 
     hub-core :
       hosts :
@@ -80,33 +64,18 @@ all:
           ansible_host: 192.168.134.201
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.201
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
+
 
         hub-core2 :
           ansible_host: 192.168.134.202
           ansible_connection: network_cli
           ansible_network_os: ios
-          ansible_user: admin
-          ansible_ssh_pass: cisco
           ansible_become: no
           ansible_become_method:
           ansible_become_pass:
-          cli:
-            host: 192.168.134.202
-            username: admin
-            password: cisco
-            auth_pass:
-            authorize: no
 
     spoke-core :
       children:
