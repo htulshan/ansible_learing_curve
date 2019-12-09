@@ -5,8 +5,9 @@ router eigrp {{eigrp.as_number}}
   {%- for passive in eigrp.passive_interfaces -%}
   passive-interface {{ passive }}
   {% endfor %}
-{%- for interface in eigrp.interfaces -%}
-{%- if interface -%}
+
+{% for interface in eigrp.interfaces %}
+{% if interface %}
 interface {{interface.id}}
   {% if 'delay' in interface %}
   delay {{interface.delay}}

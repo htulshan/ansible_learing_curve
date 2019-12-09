@@ -4,4 +4,7 @@ router bgp {{bgp.asnumber}}
   {% if neighbor.update_source -%}
   neighbor {{neighbor.neighbor_ip}} update-source {{neighbor.source_interface}}
   {% endif -%}
+  {% if neighbor.next_hop_self -%}
+  neighbor {{neighbor.neighbor_ip}} next-hop-self
+  {% endif -%}
   {% endfor %}

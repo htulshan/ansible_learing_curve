@@ -68,10 +68,12 @@ bgp :
     - neighbor_ip : 155.1.24.4
       remote_as : 100
       update_source : false
+      next_hop_self : false
     - neighbor_ip : 150.1.1.1
       remote_as : 200
       update_source : true
       source_interface : Loopback0
+      next_hop_self : true
 
 dmvpn :
   type : hub
