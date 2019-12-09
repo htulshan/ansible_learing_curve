@@ -9,3 +9,5 @@ no interface Ethernet0/2.100
 no router eigrp 100
 no router bgp 200
 no ip sla 1
+no ip access-list standard NAT-ACCESSLIST
+ip nat inside source list NAT-ACCESSLIST interface Ethernet0/0 overload
