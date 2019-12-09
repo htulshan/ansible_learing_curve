@@ -33,6 +33,13 @@
   roles :
     - configure_dmvpn
 
+- name : Configure EIGRP on spokes
+  hosts : spoke-core
+  gather_facts : false
+
+  roles :
+    - configure_eigrp
+
 - name : Configure L3 interfaces on hub
   hosts : hub-core
   gather_facts : false
@@ -67,3 +74,10 @@
 
   roles :
     - configure_dmvpn
+
+- name : Configure EIGRP on hub
+  hosts : hub-core
+  gather_facts : false
+
+  roles :
+    - configure_eigrp

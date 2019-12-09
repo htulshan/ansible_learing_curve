@@ -1,0 +1,3 @@
+- name : Configure EIGRP
+  include_tasks : eigrp_ios.yaml
+  when : ansible_network_os == 'ios'

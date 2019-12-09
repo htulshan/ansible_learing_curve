@@ -80,3 +80,21 @@ dmvpn :
       nhrp_authentication : cisco123
       nhrp_networkid : 1
       tunnel_key : 0
+
+eigrp :
+  as_number : 100
+  networks :
+    - 155.1.12.1
+    - 155.1.1.1
+    - 155.1.11.1
+    - 155.1.101.1
+    - 150.1.1.1
+    - 155.0.1.1
+  passive_interfaces :
+    - Ethernet0/2
+    - Ethernet0/2.10
+    - Ethernet0/2.100
+  interfaces :
+    - id : Tunnel0
+      split_horizon : 100
+      next_hop_self : 100

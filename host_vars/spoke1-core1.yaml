@@ -59,3 +59,18 @@ sla_track :
     track_type : reachability
 
 hsrp_priority : 150
+
+eigrp :
+  as_number : 100
+  networks :
+    - 155.1.67.6
+    - 155.1.6.6
+    - 155.1.16.6
+    - 155.1.106.6
+    - 155.0.1.6
+  passive_interfaces :
+    - Ethernet0/2
+    - Ethernet0/2.10
+    - Ethernet0/2.100
+  interfaces :
+    - 

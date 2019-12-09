@@ -1,0 +1,21 @@
+router eigrp {{eigrp.as_number}}
+  {% for network in eigrp.networks %}
+  network {{network}} 0.0.0.0
+  {% endfor %}
+  {%- for passive in eigrp.passive_interfaces -%}
+  passive-interface {{ passive }}
+  {% endfor %}
+{%- for interface in eigrp.interfaces -%}
+{%- if interface -%}
+interface {{interface.id}}
+  {% if 'delay' in interface %}
+  delay {{interface.delay}}
+  {% endif %}
+  {% if 'split_horizon' in interface %}
+  no ip split-horizon eigrp {{interface.split_horizon}}
+  {% endif %}
+  {% if 'next_hop_self' in interface %}
+  no ip next-hop-self eigrp {{interface.next_hop_self}}
+  {% endif %}
+{% endif %}
+{% endfor %}
