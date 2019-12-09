@@ -1,0 +1,4 @@
+{%- for interface in nat_config.interfaces -%}
+interface {{interface.id}}
+  ip nat {{interface.side}}
+{% endfor %}

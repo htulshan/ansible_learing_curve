@@ -1,0 +1,31 @@
+- name : Configure NAT access-list
+  ios_config :
+    parents :
+      - ip access-list standard NAT-ACCESSLIST
+    lines :
+      - permit any
+  register : pushed_config
+
+- name : displaying pushed config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed
+
+- name : Configure NAT interface
+  ios_config :
+    src : "templates/nat_interface_ios.j2"
+  register : pushed_config
+
+- name : displaying pushed config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed
+
+- name : Configure NAT statement
+  ios_config :
+    lines :
+      - ip nat inside source list NAT-ACCESSLIST interface Ethernet0/0 overload
+  register : pushed_config
+  notify : save config
+
+- name : displaying pushed config
+  debug : var=pushed_config.updates
+  when : pushed_config.changed

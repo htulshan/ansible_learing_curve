@@ -1,0 +1,12 @@
+nat_config :
+  interfaces :
+    - id : Ethernet0/1
+      side : inside
+    - id : Ethernet0/2
+      side : inside
+    - id : Ethernet0/2.10
+      side : inside
+    - id : Ethernet0/2.100
+      side : inside
+    - id : Ethernet0/0
+      side : outside

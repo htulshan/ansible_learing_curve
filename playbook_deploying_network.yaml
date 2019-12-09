@@ -26,6 +26,13 @@
   roles :
     - configure_hsrp
 
+- name : Configure NAT on spokes
+  hosts : spoke-core
+  gather_facts : false
+
+  roles :
+    - configure_nat
+
 - name : Configure DMVPN on spokes
   hosts : spoke-core
   gather_facts : false
@@ -67,6 +74,13 @@
 
   roles :
     - configure_hsrp
+
+- name : Configure NAT on spokes
+  hosts : hub-core
+  gather_facts : false
+
+  roles :
+    - configure_nat
 
 - name : Configure DMVPN on hub
   hosts : hub-core
