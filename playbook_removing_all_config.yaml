@@ -1,0 +1,29 @@
+- name : Removing all config from spokes.
+  hosts : spoke-core
+  gather_facts : false
+
+  tasks :
+
+    - name : removing all config
+      ios_config :
+        src : "./remove_spoke_config.j2"
+      register : removed_config
+
+    - name : displaying changes made
+      debug : var=removed_config.updates
+      when : removed_config.changed
+
+- name : Removing all config from hub.
+  hosts : hub-core
+  gather_facts : false
+
+  tasks :
+
+    - name : removing all config
+      ios_config :
+        src : "./remove_hub_config.j2"
+      register : removed_config
+
+    - name : displaying changes made
+      debug : var=removed_config.updates
+      when : removed_config.changed

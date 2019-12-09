@@ -1,0 +1,10 @@
+no track 1 ip sla 1 reachability
+no interface Tunnel0
+default interface Ethernet0/0
+default interface Ethernet0/1
+default interface Ethernet0/2
+no interface Ethernet0/2.10
+no interface Ethernet0/2.100
+no router eigrp 100
+no ip route 0.0.0.0 0.0.0.0 {{static_routing[0].next_hop}}
+no ip sla 1
